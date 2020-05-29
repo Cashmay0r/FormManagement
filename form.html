@@ -3,7 +3,7 @@
 
 <head>
     <title>Form Fillout</title>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
@@ -54,31 +54,30 @@
             <div class="col">
                 <form>
                     <label for="gName">Group Name:</label><br>
-                    <input class="form-control" type="text" id="gName" name="gName"><br>
+                    <input class="form-control" type="text" id="gName" name="gName" required/><br>
                     <label for="gLocation">Group Location</label><br>
-                    <input class="form-control" type="text" id="gLocation" name="gLocation" value=""><br>
+                    <input class="form-control" type="text" id="gLocation" name="gLocation" required/><br>
                     <label for="arrival">Arrival Date:</label><br>
-                    <input class="form-control" type="date" id="arrival" name="arrival" value=""><br>
+                    <input class="form-control" type="date" id="arrival" name="arrival" required/><br>
                     <label for="depDate">Departure Date:</label><br>
-                    <input class="form-control" type="date" id="depDate" name="depDate" value=""><br>
+                    <input class="form-control" type="date" id="depDate" name="depDate" required/><br>
                     <label for="total">Total Persons:</label><br>
-                    <input class="form-control" type="text" id="total" name="total" value=""><br>
+                    <input class="form-control" type="text" id="total" name="total" required/><br>
                     <label for="ageGroup">Age Group</label><br>
-                    <input class="form-control" type="text" id="ageGroup" name="ageGroup" value=""><br>
+                    <input class="form-control" type="text" id="ageGroup" name="ageGroup" required/><br>
                     <label for="activities">Activities:</label><br>
-                    <input class="form-control" type="text" id="activities" name="activities" value=""><br>
+                    <input class="form-control" type="text" id="activities" name="activities"><br>
                     <label for="diet">Dietaries</label><br>
-                    <input class="form-control" type="text" id="diet" name="diet" value=""><br>
+                    <input class="form-control" type="text" id="diet" name="diet"><br>
                     <label for="request">Requests</label><br>
-                    <input class="form-control" type="text" id="request" name="request" value=""><br>
+                    <input class="form-control" type="text" id="request" name="request"><br>
+                    <input value="Back" class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='index.html';"/>
+                    <button class="btn btn-success" type="submit" id="btnSave">Save</button>
                 </form>
-                <div>
-                    <button class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='index.html';">Back</button>
-                    <button class="btn btn-success" type="button" id="btnSave"">Save</button>
-                </div>
                 <script>
-                    document.getElementById("btnSave").addEventListener("click", inputErrorCheck);
+                    document.getElementById("btnSave").addEventListener("click", inputCheck);
                 </script>
+                    
             </div>
         </div>
     </div>

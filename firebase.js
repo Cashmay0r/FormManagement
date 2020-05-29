@@ -135,7 +135,7 @@ function uploadData() {
         key: tKey
 
     });
-
+    
 }
 
 function updateFormPreload() {
@@ -184,7 +184,7 @@ function updateData() {
 
     };
     databaseRef.ref('groups/' + tKey).update(updates);
-    window.location.href="index.html";
+    
 }
 function deleteData(){
 
@@ -206,36 +206,48 @@ function deleteData(){
     
     }
 //Use the REQUIRED HTML CODE THINGO
-    function inputErrorCheck(){
+    function inputCheck(){
         let inputTest = false;
         const gName = document.getElementById("gName");
-        if (String(gName)){
+        if (!gName.checkValidity()){
             inputTest = true;
         }
         const gLocation = document.getElementById("gLocation");
-        if (String(gLocation)){
+        if (!gLocation.checkValidity()){
             inputTest = true;
         }
         const arrival = document.getElementById("arrival");
-        if (Date.parse(arrival)){
+        if (!arrival.checkValidity()){
             inputTest = true;
         }
         const depDate = document.getElementById("depDate");
-        if (Date.parse(depDate)){
+        if (!depDate.checkValidity()){
             inputTest = true;
         }
         const total = document.getElementById("total");
-        if (parseInt(total)){
+        if (!total.checkValidity()){
             inputTest = true;
         }
         const ageGroup = document.getElementById("ageGroup");
-
+        if (!ageGroup.checkValidity()){
+            inputTest = true;
+        }
         const activities = document.getElementById("activities");
+        if (!activities.checkValidity()){
+            inputTest = true;
+        }
         const diet = document.getElementById("diet");
+        if (!diet.checkValidity()){
+            inputTest = true;
+        }
         const request = document.getElementById("request");
+        if (!request.checkValidity()){
+            inputTest = true;
+        }
 
-        if (inputTest == true){
-            updateData();
+        if (inputTest == false){
+            uploadData();
+            
         }
     }
     
