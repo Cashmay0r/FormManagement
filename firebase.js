@@ -16,7 +16,7 @@
 
 //Form Field Formats
 //Name = String
-//Location = Location
+//Location = String
 //Arrival/Departure = Date Selection
 //Total persons = Integer
 //Age Group = List Selection
@@ -184,6 +184,7 @@ function updateData() {
 
     };
     databaseRef.ref('groups/' + tKey).update(updates);
+    window.location.href="index.html";
 }
 function deleteData(){
 
@@ -203,6 +204,39 @@ function deleteData(){
    
    // window.location.href="index.html";
     
+    }
+//Use the REQUIRED HTML CODE THINGO
+    function inputErrorCheck(){
+        let inputTest = false;
+        const gName = document.getElementById("gName");
+        if (String(gName)){
+            inputTest = true;
+        }
+        const gLocation = document.getElementById("gLocation");
+        if (String(gLocation)){
+            inputTest = true;
+        }
+        const arrival = document.getElementById("arrival");
+        if (Date.parse(arrival)){
+            inputTest = true;
+        }
+        const depDate = document.getElementById("depDate");
+        if (Date.parse(depDate)){
+            inputTest = true;
+        }
+        const total = document.getElementById("total");
+        if (parseInt(total)){
+            inputTest = true;
+        }
+        const ageGroup = document.getElementById("ageGroup");
+
+        const activities = document.getElementById("activities");
+        const diet = document.getElementById("diet");
+        const request = document.getElementById("request");
+
+        if (inputTest == true){
+            updateData();
+        }
     }
     
    

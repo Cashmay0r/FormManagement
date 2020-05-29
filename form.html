@@ -8,9 +8,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script>
@@ -58,15 +58,9 @@
                     <label for="gLocation">Group Location</label><br>
                     <input class="form-control" type="text" id="gLocation" name="gLocation" value=""><br>
                     <label for="arrival">Arrival Date:</label><br>
-                    <script>
-                        $(document).ready(function() {
-                            $('#arrival').datepicker();
-                            $('#depDate').datepicker();
-                        });
-                    </script>
-                    <input class="form-control" type="text" id="arrival" name="arrival" value=""><br>
+                    <input class="form-control" type="date" id="arrival" name="arrival" value=""><br>
                     <label for="depDate">Departure Date:</label><br>
-                    <input class="form-control" type="text" id="depDate" name="depDate" value=""><br>
+                    <input class="form-control" type="date" id="depDate" name="depDate" value=""><br>
                     <label for="total">Total Persons:</label><br>
                     <input class="form-control" type="text" id="total" name="total" value=""><br>
                     <label for="ageGroup">Age Group</label><br>
@@ -80,10 +74,10 @@
                 </form>
                 <div>
                     <button class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='index.html';">Back</button>
-                    <button class="btn btn-success" type="button" id="btnSave" onclick="window.location.href='index.html';">Save</button>
+                    <button class="btn btn-success" type="button" id="btnSave"">Save</button>
                 </div>
                 <script>
-                    document.getElementById("btnSave").addEventListener("click", uploadData);
+                    document.getElementById("btnSave").addEventListener("click", inputErrorCheck);
                 </script>
             </div>
         </div>
