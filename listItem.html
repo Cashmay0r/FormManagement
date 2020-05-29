@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo",
+      authDomain: "formdetailsproject.firebaseapp.com",
+      databaseURL: "https://formdetailsproject.firebaseio.com",
+      projectId: "formdetailsproject",
+      storageBucket: "formdetailsproject.appspot.com",
+      messagingSenderId: "965523592263",
+      appId: "1:965523592263:web:ac8da5a084ef9f67c80d62",
+      measurementId: "G-KVY89P3LJF"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    firebase.database();
+  </script>
+  <script id="javascript" type="text/javascript" src="firebase.js"></script>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Form Applications</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Login</a>
+        <a class="nav-item nav-link" href="#">Register</a>
+        <a class="nav-item nav-link" href="#">Help</a>
+        
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row align-contents-center text-center">
+      <div class="col-12">
+        <h2 id="listItemTitle">List Item Details</h2>
+      </div>
+      <div class="col-12">
+        <ul id="myListItem">
+          <li id="gName"><b>Group Name:</b> </li>
+          <li id="gLocation"><b>Location:</b> </li>
+          <li id="arrival"><b>Arrival Date:</b> </li>
+          <li id="depDate"><b>Departure Date:</b> </li>
+          <li id="total"><b>Total Persons:</b> </li>
+          <li id="ageGroup"><b>Age Group:</b> </li>
+          <li id="activities"><b>Activities:</b> </li>
+          <li id="diet"><b>Dietary Requirements:</b> </li>
+          <li id="request"><b>Special Requests:</b> </li>
+        </ul>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" onclick="window.location.href='index.html';">Back</button>
+        <button class="btn btn-success" onclick="window.location.href='updateDetails.html';">Update</button>
+        <button class="btn btn-danger" id="btnDelete">Delete</button>
+        <script>
+        openListItem();
+      </script>
+        <script>
+          document.getElementById("btnDelete").addEventListener("click", deleteData);
+        </script>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
