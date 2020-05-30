@@ -1,37 +1,4 @@
-//Features:
-//Upload data to cloud <--DONE
-//Create List and cloud data to populate list upon page loading <--DONE
-//Able to click on list item and details populate from cloud <--DONE
-//Use a UID for each entry to avoid multiple groups of same name overwriting <--DONE
-//Able to update and modify list which updates the cloud data <--DONE
-//Format forms to appropriate fields 
-//Able to export data to An excel spreadsheet 
-//Figure out how to only allow authenticated users access to write database
-//Export dietaries to exclusive file with names and dietary requirements
-//Include an account log in system
-//Notify when new booking or changes have been made
-//Log in persmissions
-// Your web app's Firebase configuration
 
-
-//Form Field Formats
-//Name = String
-//Location = String
-//Arrival/Departure = Date Selection
-//Total persons = Integer
-//Age Group = List Selection
-//Activities = List of Available Activities
-//Dietaries = Create a list entry with Name + Dietary
-//Request = Large Text Field
-
-//Key management
-//-Upload can use unique key
-//-download can use unique key
-//-Display can use unique key
-//-Update can use unique key
-
-//#2c3e50 navbar heading colour
-//body colour #18bc9c
 let globalChildData = {};
 
 function readData() {
