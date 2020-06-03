@@ -28,6 +28,7 @@ function updateList(childData, key) {
       div.className = "gList";
       div.id = obj[0];
       list.innerHTML = obj[1].gName;
+      list.className = "list-group-item";
       div.addEventListener("click", openListItemPage);
       div.appendChild(list);
       document.getElementById("myList").appendChild(div);

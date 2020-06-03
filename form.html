@@ -63,20 +63,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="index.html"
+          <a class="nav-item nav-link" href="index.html"
             >Home <span class="sr-only">(current)</span></a
           >
-          <a class="nav-item nav-link" href="#">Login</a>
+          <a class="nav-item nav-link active" href="form.html">New Form</a>
           <a class="nav-item nav-link" href="#">Register</a>
           <a class="nav-item nav-link" href="#">Help</a>
         </div>
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row justify-content-center text-center">
+    <div class="container-fluid ">
+      <div class="row justify-content-center text-center ">
         <div class="col">
-          <form action="index.html" onsubmit="inputCheck()">
+          <form class="form-group " action="index.html" onsubmit="inputCheck()">
             <label for="gName">Group Name:</label><br />
             <input
               class="form-control"
@@ -155,12 +155,14 @@
               name="diet"
             /><br />
             <label for="request">Requests</label><br />
-            <input
+            <textarea
               class="form-control"
               type="text"
+              rows="4"
               id="request"
               name="request"
-            /><br />
+            ></textarea>
+            <br />
             <input
               value="Back"
               class="btn btn-primary"
