@@ -1,200 +1,223 @@
-
 let globalChildData = {};
 
 function readData() {
-    //Database Reference
-    const databaseRef = firebase.database();
-    //Collect Database Information
-    const fetchRef = databaseRef.ref();
+  //Database Reference
+  const databaseRef = firebase.database();
+  //Collect Database Information
+  const fetchRef = databaseRef.ref();
 
-    fetchRef.on('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-            const childData = childSnapshot.val();
-            const childDataKeys = Object.keys(childData);
-            childDataKeys.forEach((key) => {
-                updateList(childData, key);
-            });
-            
-            globalChildData = childData;
-        })
-    })
+  fetchRef.on("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      const childData = childSnapshot.val();
+      const childDataKeys = Object.keys(childData);
+      childDataKeys.forEach((key) => {
+        updateList(childData, key);
+      });
+
+      globalChildData = childData;
+    });
+  });
 }
 
 function updateList(childData, key) {
-    let div = document.createElement("div");
-    let list = document.createElement("li");
-    
-    Object.entries(childData).forEach((obj) => {
-        if (key == obj[0]) {
-            div.className = "gList";
-            div.id =obj[0];
-            list.innerHTML = obj[1].gName;
-            div.addEventListener("click", openListItemPage);
-            div.appendChild(list);
-            document.getElementById("myList").appendChild(div);
-        }
-    })
+  let div = document.createElement("div");
+  let list = document.createElement("li");
+
+  Object.entries(childData).forEach((obj) => {
+    if (key == obj[0]) {
+      div.className = "gList";
+      div.id = obj[0];
+      list.innerHTML = obj[1].gName;
+      div.addEventListener("click", openListItemPage);
+      div.appendChild(list);
+      document.getElementById("myList").appendChild(div);
+    }
+  });
 }
 function openListItemPage(event) {
-    event.stopPropagation();
-    event.preventDefault();
-    let key = event.currentTarget.id;
-    //Store Across pages with sessionStorage
-    let item = Object.entries(globalChildData[key]);
-    sessionStorage.setItem("key", key);
-    sessionStorage.setItem("arrayData", JSON.stringify(item));
-    window.location.href = "listItem.html";
+  event.stopPropagation();
+  event.preventDefault();
+  let key = event.currentTarget.id;
+  //Store Across pages with sessionStorage
+  let item = Object.entries(globalChildData[key]);
+  sessionStorage.setItem("key", key);
+  sessionStorage.setItem("arrayData", JSON.stringify(item));
+  window.location.href = "listItem.html";
 }
 
 function openListItem() {
+  let key = sessionStorage.getItem("key");
+  let item = JSON.parse(sessionStorage.getItem("arrayData"));
 
-    let key = sessionStorage.getItem('key');
-    let item = JSON.parse(sessionStorage.getItem('arrayData'));
+  let listItems = [
+    "gName",
+    "gLocation",
+    "arrival",
+    "depDate",
+    "total",
+    "ageGroup",
+    "activities",
+    "diet",
+    "request",
+  ];
 
-    let listItems = ['gName', 'gLocation', 'arrival', 'depDate', 'total', 'ageGroup', 'activities', 'diet', 'request'];
-
-    listItems.forEach(aName => {
-        let page = document.getElementById(aName);
-        item.forEach(element => {
-            if (aName == element[0]) {
-                page.innerHTML = page.innerHTML + element[1];
-            }
-        })
-    })
+  listItems.forEach((aName) => {
+    let page = document.getElementById(aName);
+    item.forEach((element) => {
+      if (aName == element[0]) {
+        page.innerHTML = page.innerHTML + element[1];
+      }
+    });
+  });
 }
 
 function uploadData() {
-    
-    //Database Reference
-    const databaseRef = firebase.database();
+  //Database Reference
+  const databaseRef = firebase.database();
 
-    const gName = document.getElementById('gName').value;
-    const gLocation = document.getElementById('gLocation').value;
-    const arrival = document.getElementById('arrival').value;
-    const depDate = document.getElementById('depDate').value;
-    const total = document.getElementById('total').value;
-    const ageGroup = document.getElementById('ageGroup').value;
-    const activities = document.getElementById('activities').value;
-    const diet = document.getElementById('diet').value;
-    const request = document.getElementById('request').value;
-    const dKey = new Date;
-    const tKey = dKey.getTime();
-    
-    databaseRef.ref('groups/' + tKey).set({
-        gName: gName,
-        gLocation: gLocation,
-        arrival: arrival,
-        depDate: depDate,
-        total: total,
-        ageGroup: ageGroup,
-        activities: activities,
-        diet: diet,
-        request: request,
-        key: tKey
-    });
-    window.location.href="index.html";
+  const gName = document.getElementById("gName").value;
+  const gLocation = document.getElementById("gLocation").value;
+  const arrival = document.getElementById("arrival").value;
+  const depDate = document.getElementById("depDate").value;
+  const total = document.getElementById("total").value;
+  const ageGroup = document.getElementById("ageGroup").value;
+  const activities = document.getElementById("activities").value;
+  const diet = document.getElementById("diet").value;
+  const request = document.getElementById("request").value;
+  const dKey = new Date();
+  const tKey = dKey.getTime();
+
+  databaseRef.ref("groups/" + tKey).set({
+    gName: gName,
+    gLocation: gLocation,
+    arrival: arrival,
+    depDate: depDate,
+    total: total,
+    ageGroup: ageGroup,
+    activities: activities,
+    diet: diet,
+    request: request,
+    key: tKey,
+  });
+  window.location.href = "index.html";
 }
 
 function updateFormPreload() {
-    let key = sessionStorage.getItem('key');
-    let item = JSON.parse(sessionStorage.getItem('arrayData'));
-    let listItems = ['gName', 'gLocation', 'arrival', 'depDate', 'total', 'ageGroup', 'activities', 'diet', 'request'];
-    let listItemsUpdate = ['gNameUpdate', 'gLocationUpdate', 'arrivalUpdate', 'depDateUpdate', 'totalUpdate', 'ageGroupUpdate', 'activitiesUpdate', 'dietUpdate', 'requestUpdate'];
+  let key = sessionStorage.getItem("key");
+  let item = JSON.parse(sessionStorage.getItem("arrayData"));
+  let listItems = [
+    "gName",
+    "gLocation",
+    "arrival",
+    "depDate",
+    "total",
+    "ageGroup",
+    "activities",
+    "diet",
+    "request",
+  ];
+  let listItemsUpdate = [
+    "gNameUpdate",
+    "gLocationUpdate",
+    "arrivalUpdate",
+    "depDateUpdate",
+    "totalUpdate",
+    "ageGroupUpdate",
+    "activitiesUpdate",
+    "dietUpdate",
+    "requestUpdate",
+  ];
 
-    for (i = 0; i < listItemsUpdate.length; i++) {
-        let page = document.getElementById(listItemsUpdate[i]);
-        item.forEach(element => {
-            if (listItems[i] == element[0]) {
-                page.value = element[1];
-            }
-        })
-
-    }
-
+  for (i = 0; i < listItemsUpdate.length; i++) {
+    let page = document.getElementById(listItemsUpdate[i]);
+    item.forEach((element) => {
+      if (listItems[i] == element[0]) {
+        page.value = element[1];
+      }
+    });
+  }
 }
 function updateData() {
-
-    const databaseRef = firebase.database();
-    let tKey = sessionStorage.getItem('key');
-    const gNameUpdate = document.getElementById('gNameUpdate').value;
-    const gLocationUpdate = document.getElementById('gLocationUpdate').value;
-    const arrivalUpdate = document.getElementById('arrivalUpdate').value;
-    const depDateUpdate = document.getElementById('depDateUpdate').value;
-    const totalUpdate = document.getElementById('totalUpdate').value;
-    const ageGroupUpdate = document.getElementById('ageGroupUpdate').value;
-    const activitiesUpdate = document.getElementById('activitiesUpdate').value;
-    const dietUpdate = document.getElementById('dietUpdate').value;
-    const requestUpdate = document.getElementById('requestUpdate').value;
-    let updates = {
-        gName: gNameUpdate,
-        gLocation: gLocationUpdate,
-        arrival: arrivalUpdate,
-        depDate: depDateUpdate,
-        total: totalUpdate,
-        ageGroup: ageGroupUpdate,
-        activities: activitiesUpdate,
-        diet: dietUpdate,
-        request: requestUpdate,
-        key:tKey
-    };
-    databaseRef.ref('groups/' + tKey).update(updates);
+  const databaseRef = firebase.database();
+  let tKey = sessionStorage.getItem("key");
+  const gNameUpdate = document.getElementById("gNameUpdate").value;
+  const gLocationUpdate = document.getElementById("gLocationUpdate").value;
+  const arrivalUpdate = document.getElementById("arrivalUpdate").value;
+  const depDateUpdate = document.getElementById("depDateUpdate").value;
+  const totalUpdate = document.getElementById("totalUpdate").value;
+  const ageGroupUpdate = document.getElementById("ageGroupUpdate").value;
+  const activitiesUpdate = document.getElementById("activitiesUpdate").value;
+  const dietUpdate = document.getElementById("dietUpdate").value;
+  const requestUpdate = document.getElementById("requestUpdate").value;
+  let updates = {
+    gName: gNameUpdate,
+    gLocation: gLocationUpdate,
+    arrival: arrivalUpdate,
+    depDate: depDateUpdate,
+    total: totalUpdate,
+    ageGroup: ageGroupUpdate,
+    activities: activitiesUpdate,
+    diet: dietUpdate,
+    request: requestUpdate,
+    key: tKey,
+  };
+  databaseRef.ref("groups/" + tKey).update(updates);
 }
-function deleteData(){
-    const databaseRef = firebase.database();
-    let tKey = sessionStorage.getItem('key');
-    databaseRef.ref('groups/' + tKey).remove()
-        .then(function(){
-            console.log("Remove Successful");
-            window.location.href="index.html";
-        })
-        .catch(function (error){
-            console.log("Remove Failed" )
-        })    
-    }
+function deleteData() {
+  const databaseRef = firebase.database();
+  let tKey = sessionStorage.getItem("key");
+  databaseRef
+    .ref("groups/" + tKey)
+    .remove()
+    .then(function () {
+      console.log("Remove Successful");
+      window.location.href = "index.html";
+    })
+    .catch(function (error) {
+      console.log("Remove Failed");
+    });
+}
 
-    function inputCheck(){
-        let inputTest = false;
-        const gName = document.getElementById("gName");
-        if (!gName.checkValidity()){
-            inputTest = true;
-        }
-        const gLocation = document.getElementById("gLocation");
-        if (!gLocation.checkValidity()){
-            inputTest = true;
-        }
-        const arrival = document.getElementById("arrival");
-        if (!arrival.checkValidity()){
-            inputTest = true;
-        }
-        const depDate = document.getElementById("depDate");
-        if (!depDate.checkValidity()){
-            inputTest = true;
-        }
-        const total = document.getElementById("total");
-        if (!total.checkValidity()){
-            inputTest = true;
-        }
-        const ageGroup = document.getElementById("ageGroup");
-        if (!ageGroup.checkValidity()){
-            inputTest = true;
-        }
-        const activities = document.getElementById("activities");
-        if (!activities.checkValidity()){
-            inputTest = true;
-        }
-        const diet = document.getElementById("diet");
-        if (!diet.checkValidity()){
-            inputTest = true;
-        }
-        const request = document.getElementById("request");
-        if (!request.checkValidity()){
-            inputTest = true;
-        }
-        if(inputTest == false){
-            uploadData();
-            
-        };
-        return inputTest;
-    }
-    
-   
+function inputCheck() {
+  let inputTest = false;
+  const gName = document.getElementById("gName");
+  if (!gName.checkValidity()) {
+    inputTest = true;
+  }
+  const gLocation = document.getElementById("gLocation");
+  if (!gLocation.checkValidity()) {
+    inputTest = true;
+  }
+  const arrival = document.getElementById("arrival");
+  if (!arrival.checkValidity()) {
+    inputTest = true;
+  }
+  const depDate = document.getElementById("depDate");
+  if (!depDate.checkValidity()) {
+    inputTest = true;
+  }
+  const total = document.getElementById("total");
+  if (!total.checkValidity()) {
+    inputTest = true;
+  }
+  const ageGroup = document.getElementById("ageGroup");
+  if (!ageGroup.checkValidity()) {
+    inputTest = true;
+  }
+  const activities = document.getElementById("activities");
+  if (!activities.checkValidity()) {
+    inputTest = true;
+  }
+  const diet = document.getElementById("diet");
+  if (!diet.checkValidity()) {
+    inputTest = true;
+  }
+  const request = document.getElementById("request");
+  if (!request.checkValidity()) {
+    inputTest = true;
+  }
+  if (inputTest == false) {
+    uploadData();
+  }
+  return inputTest;
+}
