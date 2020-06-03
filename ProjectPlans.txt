@@ -32,3 +32,8 @@ Key management
 
 #2c3e50 navbar heading colour
 body colour #18bc9c
+
+*TODO*
+Make list scrollable when list grows longer than the div box size
+Give functionality to Login, Register, Help buttons, maybe change if not wanting to do a login system
+Not redirected to index page after form submission

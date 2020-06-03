@@ -45,7 +45,7 @@ form{
     display: inline-block;
     padding-left: 10px;
 }
-#gList{
+.gList{
    border: 1px solid black;
    width: 100%;
    height: 40px;
@@ -54,7 +54,7 @@ form{
    background-color: lightsteelblue;
     text-align: center;
 }
-#gList:hover{
+.gList:hover{
     background-color: lightslategray;
     cursor: pointer;
 }

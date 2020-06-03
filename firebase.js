@@ -2,15 +2,12 @@
 let globalChildData = {};
 
 function readData() {
-    
     //Database Reference
     if (!firebase){
         return;
     }
     const databaseRef = firebase.database();
-
     //Collect Database Information
-
     const fetchRef = databaseRef.ref();
 
     fetchRef.on('value', function (snapshot) {
@@ -29,22 +26,18 @@ function readData() {
 function updateList(childData, key) {
     let div = document.createElement("div");
     let list = document.createElement("li");
-
+    
     Object.entries(childData).forEach((obj) => {
         if (key == obj[0]) {
-            div.id = "gList";
+            div.className = "gList";
+            div.id =obj[0];
             list.innerHTML = obj[1].gName;
-            list.id = obj[0];
-            list.addEventListener("click", openListItemPage);
+            div.addEventListener("click", openListItemPage);
             div.appendChild(list);
             document.getElementById("myList").appendChild(div);
         }
     })
 }
-//if (gValues) {
-//Object.values(gValues).forEach((item) => {
-//});
-// }
 function openListItemPage(event) {
     event.stopPropagation();
     event.preventDefault();
@@ -73,7 +66,6 @@ function openListItem() {
     })
 }
 
-
 function uploadData() {
     //Database Reference
     const databaseRef = firebase.database();
@@ -100,7 +92,6 @@ function uploadData() {
         diet: diet,
         request: request,
         key: tKey
-
     });
     
 }
@@ -122,7 +113,6 @@ function updateFormPreload() {
     }
 
 }
-
 function updateData() {
 
     const databaseRef = firebase.database();
@@ -151,7 +141,6 @@ function updateData() {
 
     };
     databaseRef.ref('groups/' + tKey).update(updates);
-    
 }
 function deleteData(){
 
@@ -167,12 +156,9 @@ function deleteData(){
         })
         .catch(function (error){
             console.log("Remove Failed" )
-        })
-   
-   // window.location.href="index.html";
-    
+        })    
     }
-//Use the REQUIRED HTML CODE THINGO
+
     function inputCheck(){
         let inputTest = false;
         const gName = document.getElementById("gName");
@@ -214,8 +200,8 @@ function deleteData(){
 
         if (inputTest == false){
             uploadData();
-            
         }
+        return inputTest;
     }
     
    

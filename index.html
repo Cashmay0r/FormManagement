@@ -61,7 +61,12 @@
         </ul>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary" type="button" id="btnNew" onclick="window.location.href='form.html';">New Form</button>
+        <button class="btn btn-primary" type="button" id="btnNew">New Form</button>
+        <script>
+          document.getElementById("btnNew").addEventListener("click", function(){
+            window.location.href="form.html"
+          });
+        </script>
       </div>
     </div>
   </div>

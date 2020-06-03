@@ -72,7 +72,7 @@
           <input class="form-control" type="text" id="total" name="total" required /><br>
           <label for="ageGroup">Age Group</label><br>
           <select class="form-control" id="ageGroup" name="Age Group" required>
-            <option value="Select Age...">Select Age...</option>
+            <option selected disabled hidden value="">Select Age...</option>
             <option value="5-10">5-12</option>
             <option value="5-10">13-18</option>
             <option value="5-10">18-40</option>
@@ -81,7 +81,7 @@
           </select><br>
           <label for="activities">Activities:</label><br>
           <select class="form-control" id="activities" name="activities" required>
-            <option value="Select Activities...">Select Activities...</option>
+            <option selected disabled hidden value="">Select Activities...</option>
             <option value="N/A">N/A</option>
             <option value="Archery">Archery</option>
             <option value="Frisbee Golf">Frisbee Golf</option>
@@ -97,8 +97,14 @@
           <button class="btn btn-success" type="submit" id="btnSave">Save</button>
         </form>
         <script>
-          document.getElementById("btnSave").addEventListener("click", inputCheck);
+          document.getElementById("btnSave").addEventListener("click", function(){         
+            if(inputCheck() == false){
+              window.location.href="index.html";
+            }
+          });
+          
         </script>
+        
 
       </div>
     </div>
