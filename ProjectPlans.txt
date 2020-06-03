@@ -35,4 +35,4 @@ body colour #18bc9c
 
 *TODO*
 Give functionality to Login, Register, Help buttons, maybe change if not wanting to do a login system
-Not redirected to index page after form submission, fix this!!
+Complete form formatting on the form.html page
