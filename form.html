@@ -35,7 +35,8 @@
     firebase.analytics();
     firebase.database();
   </script>
-  <script src="firebase.js"></script>
+  
+  <script id="javascript" type="text/javascript" src="firebase.js"></script>
 </head>
 
 <body>
@@ -51,7 +52,6 @@
         <a class="nav-item nav-link" href="#">Login</a>
         <a class="nav-item nav-link" href="#">Register</a>
         <a class="nav-item nav-link" href="#">Help</a>
-
       </div>
     </div>
   </nav>
@@ -59,7 +59,7 @@
   <div class="container-fluid">
     <div class="row justify-content-center text-center">
       <div class="col">
-        <form>
+        <form action="index.html" onsubmit="inputCheck()">
           <label for="gName">Group Name:</label><br>
           <input class="form-control" type="text" id="gName" name="gName" required /><br>
           <label for="gLocation">Group Location</label><br>
@@ -94,18 +94,10 @@
           <input class="form-control" type="text" id="request" name="request"><br>
           <input value="Back" class="btn btn-primary" type="button" id="btnBack"
             onclick="window.location.href='index.html';" />
-          <button class="btn btn-success" type="submit" id="btnSave">Save</button>
+          <input class="btn btn-success" type="submit" id="btnSave" value="Save">
+         
         </form>
-        <script>
-          document.getElementById("btnSave").addEventListener("click", function(){         
-            if(inputCheck() == false){
-              window.location.href="index.html";
-            }
-          });
-          
-        </script>
         
-
       </div>
     </div>
   </div>

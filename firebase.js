@@ -3,9 +3,6 @@ let globalChildData = {};
 
 function readData() {
     //Database Reference
-    if (!firebase){
-        return;
-    }
     const databaseRef = firebase.database();
     //Collect Database Information
     const fetchRef = databaseRef.ref();
@@ -17,7 +14,7 @@ function readData() {
             childDataKeys.forEach((key) => {
                 updateList(childData, key);
             });
-
+            
             globalChildData = childData;
         })
     })
@@ -67,6 +64,7 @@ function openListItem() {
 }
 
 function uploadData() {
+    
     //Database Reference
     const databaseRef = firebase.database();
 
@@ -81,6 +79,7 @@ function uploadData() {
     const request = document.getElementById('request').value;
     const dKey = new Date;
     const tKey = dKey.getTime();
+    
     databaseRef.ref('groups/' + tKey).set({
         gName: gName,
         gLocation: gLocation,
@@ -93,7 +92,7 @@ function uploadData() {
         request: request,
         key: tKey
     });
-    
+    window.location.href="index.html";
 }
 
 function updateFormPreload() {
@@ -137,16 +136,10 @@ function updateData() {
         diet: dietUpdate,
         request: requestUpdate,
         key:tKey
-
-
     };
     databaseRef.ref('groups/' + tKey).update(updates);
 }
 function deleteData(){
-
-    if (!firebase){
-        return;
-    }
     const databaseRef = firebase.database();
     let tKey = sessionStorage.getItem('key');
     databaseRef.ref('groups/' + tKey).remove()
@@ -197,10 +190,10 @@ function deleteData(){
         if (!request.checkValidity()){
             inputTest = true;
         }
-
-        if (inputTest == false){
+        if(inputTest == false){
             uploadData();
-        }
+            
+        };
         return inputTest;
     }
     
