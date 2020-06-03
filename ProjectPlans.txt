@@ -15,14 +15,15 @@ Your web app's Firebase configuration
 
 
 Form Field Formats
-Name = String
-Location = String
-Arrival/Departure = Date Selection
-Total persons = Integer
-Age Group = List Selection
-Activities = List of Available Activities
-Dietaries = Create a list entry with Name + Dietary
-Request = Large Text Field
+Name = String <--Trim() to not allow spaces to count as form filled
+Location = String <--Use a location searching feature to automatically search for locations when typing
+Arrival/Departure = Date Selection <--Use a min date feature, compare dates to see if they are in correct order
+Total persons = Integer <--Make sure it is an integer and above 0, below 220
+Age Group = List Selection <--Refine Age group options
+Activities = List of Available Activities <-- Refine Activity options
+Dietaries = Create a list entry with Name + Dietary <--Make an editable list, + to add dietary, - to remove dietary, allow to edit
+Request = Large Text Field <--World Limit (200 ish?)
+Maybe add an email and phone number form and format those for email + phone.
 
 Key management
 -Upload can use unique key
