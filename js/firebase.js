@@ -50,17 +50,7 @@ function openListItem() {
   let key = sessionStorage.getItem("key");
   let item = JSON.parse(sessionStorage.getItem("arrayData"));
 
-  let listItems = [
-    "gName",
-    "gLocation",
-    "arrival",
-    "depDate",
-    "total",
-    "ageGroup",
-    "activities",
-    "diet",
-    "request",
-  ];
+  let listItems = ["gName", "gLocation", "arrival", "depDate", "total", "ageGroup", "activities", "diet", "request"];
 
   listItems.forEach((aName) => {
     let page = document.getElementById(aName);
@@ -76,15 +66,15 @@ function uploadData() {
   //Database Reference
   const databaseRef = firebase.database();
 
-  const gName = document.getElementById("gName").value;
-  const gLocation = document.getElementById("gLocation").value;
-  const arrival = document.getElementById("arrival").value;
-  const depDate = document.getElementById("depDate").value;
-  const total = document.getElementById("total").value;
-  const ageGroup = document.getElementById("ageGroup").value;
-  const activities = document.getElementById("activities").value;
-  const diet = document.getElementById("diet").value;
-  const request = document.getElementById("request").value;
+  const gName = document.getElementById("gName").value.trim();
+  const gLocation = document.getElementById("gLocation").value.trim();
+  const arrival = document.getElementById("arrival").value.trim();
+  const depDate = document.getElementById("depDate").value.trim();
+  const total = document.getElementById("total").value.trim();
+  const ageGroup = document.getElementById("ageGroup").value.trim();
+  const activities = document.getElementById("activities").value.trim();
+  const diet = document.getElementById("diet").value.trim();
+  const request = document.getElementById("request").value.trim();
   const dKey = new Date();
   const tKey = dKey.getTime();
 
@@ -106,17 +96,7 @@ function uploadData() {
 function updateFormPreload() {
   let key = sessionStorage.getItem("key");
   let item = JSON.parse(sessionStorage.getItem("arrayData"));
-  let listItems = [
-    "gName",
-    "gLocation",
-    "arrival",
-    "depDate",
-    "total",
-    "ageGroup",
-    "activities",
-    "diet",
-    "request",
-  ];
+  let listItems = ["gName", "gLocation", "arrival", "depDate", "total", "ageGroup", "activities", "diet", "request"];
   let listItemsUpdate = [
     "gNameUpdate",
     "gLocationUpdate",
@@ -138,18 +118,19 @@ function updateFormPreload() {
     });
   }
 }
+
 function updateData() {
   const databaseRef = firebase.database();
   let tKey = sessionStorage.getItem("key");
-  const gNameUpdate = document.getElementById("gNameUpdate").value;
-  const gLocationUpdate = document.getElementById("gLocationUpdate").value;
-  const arrivalUpdate = document.getElementById("arrivalUpdate").value;
-  const depDateUpdate = document.getElementById("depDateUpdate").value;
-  const totalUpdate = document.getElementById("totalUpdate").value;
-  const ageGroupUpdate = document.getElementById("ageGroupUpdate").value;
-  const activitiesUpdate = document.getElementById("activitiesUpdate").value;
-  const dietUpdate = document.getElementById("dietUpdate").value;
-  const requestUpdate = document.getElementById("requestUpdate").value;
+  const gNameUpdate = document.getElementById("gNameUpdate").value.trim();
+  const gLocationUpdate = document.getElementById("gLocationUpdate").value.trim();
+  const arrivalUpdate = document.getElementById("arrivalUpdate").value.trim();
+  const depDateUpdate = document.getElementById("depDateUpdate").value.trim();
+  const totalUpdate = document.getElementById("totalUpdate").value.trim();
+  const ageGroupUpdate = document.getElementById("ageGroupUpdate").value.trim();
+  const activitiesUpdate = document.getElementById("activitiesUpdate").value.trim();
+  const dietUpdate = document.getElementById("dietUpdate").value.trim();
+  const requestUpdate = document.getElementById("requestUpdate").value.trim();
   let updates = {
     gName: gNameUpdate,
     gLocation: gLocationUpdate,
@@ -177,48 +158,4 @@ function deleteData() {
     .catch(function (error) {
       console.log("Remove Failed");
     });
-}
-
-function inputCheck() {
-  let inputTest = false;
-  const gName = document.getElementById("gName");
-  if (!gName.checkValidity()) {
-    inputTest = true;
-  }
-  const gLocation = document.getElementById("gLocation");
-  if (!gLocation.checkValidity()) {
-    inputTest = true;
-  }
-  const arrival = document.getElementById("arrival");
-  if (!arrival.checkValidity()) {
-    inputTest = true;
-  }
-  const depDate = document.getElementById("depDate");
-  if (!depDate.checkValidity()) {
-    inputTest = true;
-  }
-  const total = document.getElementById("total");
-  if (!total.checkValidity()) {
-    inputTest = true;
-  }
-  const ageGroup = document.getElementById("ageGroup");
-  if (!ageGroup.checkValidity()) {
-    inputTest = true;
-  }
-  const activities = document.getElementById("activities");
-  if (!activities.checkValidity()) {
-    inputTest = true;
-  }
-  const diet = document.getElementById("diet");
-  if (!diet.checkValidity()) {
-    inputTest = true;
-  }
-  const request = document.getElementById("request");
-  if (!request.checkValidity()) {
-    inputTest = true;
-  }
-  if (inputTest == false) {
-    uploadData();
-  }
-  return inputTest;
 }

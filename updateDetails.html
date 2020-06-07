@@ -22,11 +22,8 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
     <script>
       var firebaseConfig = {
         apiKey: "AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo",
@@ -43,7 +40,8 @@
       firebase.analytics();
       firebase.database();
     </script>
-    <script src="firebase.js"></script>
+    <script type="text/javascript" src="js/form.js"></script>
+    <script src="js/firebase.js"></script>
   </head>
 
   <body>
@@ -62,9 +60,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="index.html"
-            >Home <span class="sr-only">(current)</span></a
-          >
+          <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="form.html">New Form</a>
           <a class="nav-item nav-link" href="#">Register</a>
           <a class="nav-item nav-link" href="#">Help</a>
@@ -77,93 +73,29 @@
         <div class="col-12">
           <form>
             <label for="gName">Group Name:</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="gNameUpdate"
-              name="gName"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="gNameUpdate" name="gName" value="" /><br />
             <label for="gLocation">Group Location</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="gLocationUpdate"
-              name="gLocation"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="gLocationUpdate" name="gLocation" value="" /><br />
             <label for="arrival">Arrival Date:</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="arrivalUpdate"
-              name="arrival"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="arrivalUpdate" name="arrival" value="" /><br />
             <label for="depDate">Departure Date:</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="depDateUpdate"
-              name="depDate"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="depDateUpdate" name="depDate" value="" /><br />
             <label for="total">Total Persons:</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="totalUpdate"
-              name="total"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="totalUpdate" name="total" value="" /><br />
             <label for="ageGroup">Age Group</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="ageGroupUpdate"
-              name="ageGroup"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="ageGroupUpdate" name="ageGroup" value="" /><br />
             <label for="activities">Activities:</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="activitiesUpdate"
-              name="activities"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="activitiesUpdate" name="activities" value="" /><br />
             <label for="diet">Dietaries</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="dietUpdate"
-              name="diet"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="dietUpdate" name="diet" value="" /><br />
             <label for="request">Requests</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="requestUpdate"
-              name="request"
-              value=""
-            /><br />
+            <input class="form-control" type="text" id="requestUpdate" name="request" value="" /><br />
           </form>
           <div>
-            <button
-              class="btn btn-primary"
-              type="button"
-              id="btnBack"
-              onclick="window.location.href='index.html';"
-            >
+            <button class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='index.html';">
               Back
             </button>
-            <button
-              class="btn btn-success"
-              type="button"
-              id="btnUpdate"
-              onclick="window.location.href='index.html';"
-            >
+            <button class="btn btn-success" type="button" id="btnUpdate" onclick="window.location.href='index.html';">
               Update
             </button>
           </div>
@@ -171,9 +103,7 @@
             updateFormPreload();
           </script>
           <script>
-            document
-              .getElementById("btnUpdate")
-              .addEventListener("click", updateData);
+            document.getElementById("btnUpdate").addEventListener("click", updateData);
           </script>
         </div>
       </div>

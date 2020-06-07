@@ -9,7 +9,7 @@ Sort groups by date of group Arrival
 Able to export all data to An excel spreadsheet
 Export dietaries to exclusive file with names and dietary requirements
 Figure out how to only allow authenticated users access to write database
-Include an account log in system
+Include an account log in system 
 Notify when new booking or changes have been made
 Log in persmissions
 Help Page explaining major functions and contact details
@@ -18,7 +18,7 @@ Your web app's Firebase configuration
 
 
 Form Field Formats
-Name = String <--Trim() to not allow spaces to count as form filled
+Name = String <--DONE
 Location = String <--Use a location searching feature to automatically search for locations when typing
 Arrival/Departure = Date Selection <--Use a min date feature, compare dates to see if they are in correct order
 Total persons = Integer <--Make sure it is an integer and above 0, below 220

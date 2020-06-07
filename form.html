@@ -22,11 +22,8 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
     <script>
       var firebaseConfig = {
         apiKey: "AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo",
@@ -43,8 +40,8 @@
       firebase.analytics();
       firebase.database();
     </script>
-
-    <script id="javascript" type="text/javascript" src="firebase.js"></script>
+    <script type="text/javascript" src="js/form.js"></script>
+    <script id="javascript" type="text/javascript" src="js/firebase.js"></script>
   </head>
 
   <body>
@@ -63,9 +60,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="index.html"
-            >Home <span class="sr-only">(current)</span></a
-          >
+          <a class="nav-item nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link active" href="form.html">New Form</a>
           <a class="nav-item nav-link" href="#">Register</a>
           <a class="nav-item nav-link" href="#">Help</a>
@@ -73,57 +68,25 @@
       </div>
     </nav>
 
-    <div class="container-fluid ">
-      <div class="row justify-content-center text-center ">
+    <div class="container-fluid">
+      <div class="row justify-content-center text-center">
         <div class="col">
-          <form class="form-group " action="index.html" onsubmit="inputCheck()">
+          <form class="form-group" action="index.html" onsubmit="inputCheck()">
             <label for="gName">Group Name:</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="gName"
-              name="gName"
-              required
-            /><br />
+            <input class="form-control" type="text" id="gName" name="gName" required /><br />
             <label for="gLocation">Group Location</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="gLocation"
-              name="gLocation"
-              required
-            /><br />
+            <input class="form-control" type="text" id="gLocation" name="gLocation" required /><br />
             <label for="arrival">Arrival Date:</label><br />
-            <input
-              class="form-control"
-              type="date"
-              id="arrival"
-              name="arrival"
-              required
-            /><br />
+            <input class="form-control" type="date" id="arrival" name="arrival" required /><br />
+            <script>
+              document.getElementById("arrival").value = getCurrentDate();
+            </script>
             <label for="depDate">Departure Date:</label><br />
-            <input
-              class="form-control"
-              type="date"
-              id="depDate"
-              name="depDate"
-              required
-            /><br />
+            <input class="form-control" type="date" id="depDate" name="depDate" required /><br />
             <label for="total">Total Persons:</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="total"
-              name="total"
-              required
-            /><br />
+            <input class="form-control" type="text" id="total" name="total" required /><br />
             <label for="ageGroup">Age Group</label><br />
-            <select
-              class="form-control"
-              id="ageGroup"
-              name="Age Group"
-              required
-            >
+            <select class="form-control" id="ageGroup" name="Age Group" required>
               <option selected disabled hidden value="">Select Age...</option>
               <option value="5-10">5-12</option>
               <option value="5-10">13-18</option>
@@ -132,15 +95,8 @@
               <option value="5-10">60+</option> </select
             ><br />
             <label for="activities">Activities:</label><br />
-            <select
-              class="form-control"
-              id="activities"
-              name="activities"
-              required
-            >
-              <option selected disabled hidden value=""
-                >Select Activities...</option
-              >
+            <select class="form-control" id="activities" name="activities" required>
+              <option selected disabled hidden value="">Select Activities...</option>
               <option value="N/A">N/A</option>
               <option value="Archery">Archery</option>
               <option value="Frisbee Golf">Frisbee Golf</option>
@@ -148,34 +104,12 @@
               <option value="Campfire">Campfire</option> </select
             ><br />
             <label for="diet">Dietaries</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="diet"
-              name="diet"
-            /><br />
+            <input class="form-control" type="text" id="diet" name="diet" /><br />
             <label for="request">Requests</label><br />
-            <textarea
-              class="form-control"
-              type="text"
-              rows="4"
-              id="request"
-              name="request"
-            ></textarea>
+            <textarea class="form-control" type="text" rows="4" id="request" name="request"></textarea>
             <br />
-            <input
-              value="Back"
-              class="btn btn-primary"
-              type="button"
-              id="btnBack"
-              onclick="window.location.href='index.html';"
-            />
-            <input
-              class="btn btn-success"
-              type="submit"
-              id="btnSave"
-              value="Save"
-            />
+            <input value="Back" class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='index.html';" />
+            <input class="btn btn-success" type="submit" id="btnSave" value="Save" />
           </form>
         </div>
       </div>
