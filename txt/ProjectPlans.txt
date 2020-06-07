@@ -20,12 +20,12 @@ Your web app's Firebase configuration
 Form Field Formats
 Name = String <--DONE
 Location = String <--Use a location searching feature to automatically search for locations when typing
-Arrival/Departure = Date Selection <--Use a min date feature, compare dates to see if they are in correct order
-Total persons = Integer <--Make sure it is an integer and above 0, below 220
+Arrival/Departure = <--DONE
+Total persons = Integer <--DONE
 Age Group = List Selection <--Refine Age group options
 Activities = List of Available Activities <-- Refine Activity options
 Dietaries = Create a list entry with Name + Dietary <--Make an editable list, + to add dietary, - to remove dietary, allow to edit
-Request = Large Text Field <--World Limit (200 ish?)
+Request = Large Text Field <--DONE
 Maybe add an email and phone number form and format those for email + phone.
 
 #2c3e50 navbar heading colour

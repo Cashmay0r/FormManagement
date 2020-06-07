@@ -11,28 +11,24 @@ body {
   max-width: 90vw;
   padding: 0px;
   margin: auto;
+  max-height: 80vh;
 }
 .list-group-item:hover {
   background-color: #3e5871;
   color: white;
   cursor: pointer;
-  border-color: whitesmoke;
 }
-myList {
-  border: 2px solid black;
-  margin: auto;
-
-  border-radius: 5px;
-  background-color: lightgray;
+.formdetails:hover {
+  background-color: white;
+  cursor: default;
+  color: black;
 }
-
 label {
   float: left;
   margin: 0px;
   padding: 0px;
   color: white;
 }
-
 form {
   padding: 5vh 10vw 0vh 10vw;
   margin: auto;
@@ -52,4 +48,7 @@ h2 {
   margin: 10px 5px 10px 5px;
 
   min-width: 100px;
+}
+#gLocation {
+  background-image: url(imgs\powered_by_google_on_white.png);
 }

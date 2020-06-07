@@ -11,6 +11,13 @@ function inputCheck() {
   const arrival = document.getElementById("arrival");
   if (!arrival.checkValidity()) {
     inputTest = true;
+  } else {
+    const arrivalDate = new Date(arrival.value);
+    const currentDate = new Date(getCurrentDate());
+
+    if (arrivalDate.getTime() < currentDate.getTime()) {
+      inputTest = true;
+    }
   }
   const depDate = document.getElementById("depDate");
   if (!depDate.checkValidity()) {

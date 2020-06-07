@@ -8,6 +8,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
     <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo&libraries=places"
+    ></script>
+    <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
@@ -40,7 +44,7 @@
       firebase.analytics();
       firebase.database();
     </script>
-    <script type="text/javascript" src="js/form.js"></script>
+    <script id="formJs" type="text/javascript" src="js/form.js"></script>
     <script id="javascript" type="text/javascript" src="js/firebase.js"></script>
   </head>
 
@@ -77,14 +81,19 @@
             <label for="gLocation">Group Location</label><br />
             <input class="form-control" type="text" id="gLocation" name="gLocation" required /><br />
             <label for="arrival">Arrival Date:</label><br />
-            <input class="form-control" type="date" id="arrival" name="arrival" required /><br />
+            <input class="form-control" type="date" id="arrival" name="arrival" min required /><br />
             <script>
+              document.getElementById("arrival").setAttribute("min", getCurrentDate());
               document.getElementById("arrival").value = getCurrentDate();
             </script>
             <label for="depDate">Departure Date:</label><br />
-            <input class="form-control" type="date" id="depDate" name="depDate" required /><br />
+            <input class="form-control" type="date" id="depDate" name="depDate" min required /><br />
+            <script>
+              document.getElementById("depDate").setAttribute("min", getCurrentDate());
+              document.getElementById("depDate").value = getCurrentDate();
+            </script>
             <label for="total">Total Persons:</label><br />
-            <input class="form-control" type="text" id="total" name="total" required /><br />
+            <input class="form-control" type="number" id="total" name="total" value="0" min="0" max="220" required /><br />
             <label for="ageGroup">Age Group</label><br />
             <select class="form-control" id="ageGroup" name="Age Group" required>
               <option selected disabled hidden value="">Select Age...</option>
@@ -106,11 +115,17 @@
             <label for="diet">Dietaries</label><br />
             <input class="form-control" type="text" id="diet" name="diet" /><br />
             <label for="request">Requests</label><br />
-            <textarea class="form-control" type="text" rows="4" id="request" name="request"></textarea>
+            <textarea class="form-control" type="text" rows="4" id="request" name="request" maxlength="500"></textarea>
             <br />
             <input value="Back" class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='index.html';" />
             <input class="btn btn-success" type="submit" id="btnSave" value="Save" />
           </form>
+          <script>
+            document.getElementById("btnSave").addEventListener("click", function () {
+              const arrivalDate = document.getElementById("arrival").value;
+              document.getElementById("depDate").setAttribute("min", arrivalDate);
+            });
+          </script>
         </div>
       </div>
     </div>
