@@ -34,12 +34,6 @@ form {
   margin: auto;
 }
 
-#myListItem {
-  text-align: left;
-  display: inline-block;
-  padding-left: 10px;
-}
-
 h2 {
   text-align: center;
   color: white;
@@ -50,5 +44,7 @@ h2 {
   min-width: 100px;
 }
 #gLocation {
-  background-image: url(imgs\powered_by_google_on_white.png);
+  background-image: url(/imgs/powered_by_google_on_white.png);
+  background-repeat: no-repeat;
+  background-size: 15% 100%;
 }
