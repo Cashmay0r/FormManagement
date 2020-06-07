@@ -77,9 +77,17 @@
         <div class="col">
           <form class="form-group" action="index.html" onsubmit="inputCheck()">
             <label for="gName">Group Name:</label><br />
-            <input class="form-control" type="text" id="gName" name="gName" required /><br />
+            <input class="form-control" type="text" id="gName" name="gName" placeholder="Enter a Group Name...  " required /><br />
             <label for="gLocation">Group Location</label><br />
-            <input class="form-control" type="text" id="gLocation" name="gLocation" required /><br />
+            <input
+              class="form-control"
+              type="text"
+              id="gLocation"
+              name="gLocation"
+              onclick="formJS:placeSearch()"
+              placeholder="Enter a Location..."
+              required
+            /><br />
             <label for="arrival">Arrival Date:</label><br />
             <input class="form-control" type="date" id="arrival" name="arrival" min required /><br />
             <script>
@@ -113,9 +121,17 @@
               <option value="Campfire">Campfire</option> </select
             ><br />
             <label for="diet">Dietaries</label><br />
-            <input class="form-control" type="text" id="diet" name="diet" /><br />
+            <input class="form-control" type="text" id="diet" name="diet" placeholder="Enter Dietary Needs..." /><br />
             <label for="request">Requests</label><br />
-            <textarea class="form-control" type="text" rows="4" id="request" name="request" maxlength="500"></textarea>
+            <textarea
+              class="form-control"
+              type="text"
+              rows="4"
+              id="request"
+              name="request"
+              maxlength="500"
+              placeholder="Enter any Requests..."
+            ></textarea>
             <br />
             <input value="Back" class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='index.html';" />
             <input class="btn btn-success" type="submit" id="btnSave" value="Save" />
