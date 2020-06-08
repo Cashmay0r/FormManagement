@@ -131,7 +131,8 @@ function updateData() {
   const activitiesUpdate = document.getElementById("activitiesUpdate").value.trim();
   const dietUpdate = document.getElementById("dietUpdate").value.trim();
   const requestUpdate = document.getElementById("requestUpdate").value.trim();
-  let updates = {
+  
+  databaseRef.ref("groups/" + tKey).update({
     gName: gNameUpdate,
     gLocation: gLocationUpdate,
     arrival: arrivalUpdate,
@@ -142,8 +143,7 @@ function updateData() {
     diet: dietUpdate,
     request: requestUpdate,
     key: tKey,
-  };
-  databaseRef.ref("groups/" + tKey).update(updates);
+  });
 }
 function deleteData() {
   const databaseRef = firebase.database();
