@@ -71,7 +71,7 @@ function dietList() {
   list.id = dietName;
   list.innerHTML = dietName + " is allergic to " + dietItem;
   btn.className = "btn-danger col-1 form-control";
-  btn.value = "Delete";
+  btn.value = "X";
   btn.type = "button";
 
   div.appendChild(list);
