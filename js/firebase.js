@@ -131,7 +131,7 @@ function updateData() {
   const activitiesUpdate = document.getElementById("activitiesUpdate").value.trim();
   const dietUpdate = document.getElementById("dietUpdate").value.trim();
   const requestUpdate = document.getElementById("requestUpdate").value.trim();
-  
+
   databaseRef.ref("groups/" + tKey).update({
     gName: gNameUpdate,
     gLocation: gLocationUpdate,

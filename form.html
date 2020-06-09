@@ -121,7 +121,14 @@
               <option value="Campfire">Campfire</option> </select
             ><br />
             <label for="diet">Dietaries</label><br />
-            <input class="form-control" type="text" id="diet" name="diet" placeholder="Enter Dietary Needs..." /><br />
+            <div class="form-inline col-12">
+              <input class="form-control col-4" type="text" id="dietName" name="dietName" placeholder="Enter Name..." /><br />
+              <input class="form-control col-7" type="text" id="dietItem" name="dietItem" placeholder="Enter Food Item..." /><br />
+              <input class="form-control col-1 btn-primary" type="button" id="dietButton" name="dietButton" value="Add" />
+            </div>
+            <div class="list-group" id="listItems">
+              <ul id="dietList" class="list-group overflow-auto col-6 float-left"></ul>
+            </div>
             <label for="request">Requests</label><br />
             <textarea
               class="form-control"
@@ -140,6 +147,10 @@
             document.getElementById("btnSave").addEventListener("click", function () {
               const arrivalDate = document.getElementById("arrival").value;
               document.getElementById("depDate").setAttribute("min", arrivalDate);
+            });
+
+            document.getElementById("dietButton").addEventListener("click", function () {
+              dietList();
             });
           </script>
         </div>

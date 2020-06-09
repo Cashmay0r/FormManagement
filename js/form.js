@@ -60,3 +60,21 @@ function placeSearch() {
   // place fields that are returned to just the address components.
   autocomplete.setFields(["address_component"]);
 }
+function dietList() {
+  const dietName = document.getElementById("dietName").value;
+  const dietItem = document.getElementById("dietItem").value;
+  const list = document.createElement("li");
+  const div = document.createElement("div");
+  const btn = document.createElement("input");
+  div.className = "form-inline col-12";
+  list.className = "form-control formdetails col-11";
+  list.id = dietName;
+  list.innerHTML = dietName + " is allergic to " + dietItem;
+  btn.className = "btn-danger col-1 form-control";
+  btn.value = "Delete";
+  btn.type = "button";
+
+  div.appendChild(list);
+  div.appendChild(btn);
+  document.getElementById("dietList").appendChild(div);
+}

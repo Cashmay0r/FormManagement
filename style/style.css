@@ -43,3 +43,6 @@ h2 {
 
   min-width: 100px;
 }
+.dietList {
+  align-content: left;
+}
