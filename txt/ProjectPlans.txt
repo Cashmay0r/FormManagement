@@ -19,7 +19,7 @@ Your web app's Firebase configuration
 
 Form Field Formats
 Name = String <--DONE
-Location = String <--Use a location searching feature to automatically search for locations when typing
+Location = String <--DONE
 Arrival/Departure = <--DONE
 Total persons = Integer <--DONE
 Age Group = List Selection <--Refine Age group options
@@ -30,6 +30,13 @@ Maybe add an email and phone number form and format those for email + phone.
 
 #2c3e50 navbar heading colour
 body colour #18bc9c
+
+Login Autenticated system
+-Password must include number, symbol, uppercase and Lowercase
+-If login details are incorrect show warning and keep user at login screen
+-If login details are correct proceed user to List group pages
+-Implement email verification functionality
+
 
 *TODO*
 Give functionality to Login, Register, Help buttons, maybe change if not wanting to do a login system
