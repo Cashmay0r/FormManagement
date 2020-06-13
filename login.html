@@ -66,18 +66,33 @@
           <h2>Login</h2>
         </div>
 
-        <form class="form-group" onsubmit="userLogin()">
+        <div class="container">
           <label class="form-text">Email:</label>
           <input id="emailSubmit" type="email" class="form-control" placeholder="Enter email..." required />
           <label class="form-text">Password:</label>
           <input id="passwordSubmit" type="text" class="form-control" placeholder="Enter password..." required />
-          <a id="loginResult" value class="form-text"></a>
+          <p id="loginResult" class="form-text" style="color: white;">Result:</p>
           <div class="col-12">
-            <input type="submit" class="btn btn-primary" value="Login" />
-            <input type="submit" class="btn btn-primary" value="Register" />
+            <input id="btnLogin" type="button" class="btn btn-primary" value="Login" />
+            <input id="btnRegister" type="button" class="btn btn-primary" value="Register" />
+            <input id="btnLogout" type="button" class="btn btn-primary" value="Log Out" />
           </div>
-        </form>
+        </div>
       </div>
     </div>
+    <script>
+      userStatus();
+      document.getElementById("btnLogin").addEventListener("click", function () {
+        userLogin();
+      });
+
+      document.getElementById("btnRegister").addEventListener("click", function () {
+        createNewUser();
+      });
+
+      document.getElementById("btnLogout").addEventListener("click", function () {
+        userLogout();
+      });
+    </script>
   </body>
 </html>

@@ -41,3 +41,9 @@ Login Autenticated system
 *TODO*
 Give functionality to Login, Register, Help buttons, maybe change if not wanting to do a login system
 Complete form formatting on the form.html page
+
+Login/Account Process for New Users:
+1. Loads straight into the Login page, unable to see the Home page button and unable to load into the Home page
+2. Registers New Account, verifies email, then logged in.
+3. User can now see Home page, Login button is replaced with Account Button, can create new form, can update existing forms.
+4. User can hover over Account button and click logout, user is logged out and only able to see the Login page until they log back in.
