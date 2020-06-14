@@ -8,15 +8,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
-    <script
-      type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo&libraries=places"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo&libraries=places"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -57,23 +50,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a id="navTitle" class="navbar-brand">Booking Manager</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div id="navBar" class="navbar-nav ml-auto">
           <a id="navHome" class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
           <a id="navNewForm" class="nav-item nav-link" href="form.html">New Form</a>
-        
-          <a id="navLogin" class="nav-item nav-link active" href="index.html">Login</a>
+          <a id="navLogin" class="nav-item nav-link active" href="index.html"></a>
           <a class="nav-item nav-link" href="#">Help</a>
         </div>
       </div>
@@ -88,15 +72,7 @@
             <label for="gName">Group Name:</label><br />
             <input class="form-control" type="text" id="gName" name="gName" placeholder="Enter a Group Name...  " required /><br />
             <label for="gLocation">Group Location</label><br />
-            <input
-              class="form-control"
-              type="text"
-              id="gLocation"
-              name="gLocation"
-              onclick="formJS:placeSearch()"
-              placeholder="Enter a Location..."
-              required
-            /><br />
+            <input class="form-control" type="text" id="gLocation" name="gLocation" onclick="formJS:placeSearch()" placeholder="Enter a Location..." required /><br />
             <label for="arrival">Arrival Date:</label><br />
             <input class="form-control" type="date" id="arrival" name="arrival" min required /><br />
             <script>
@@ -139,15 +115,7 @@
               <ul id="dietList" class="list-group overflow-auto col-6 float-left"></ul>
             </div>
             <label for="request">Requests</label><br />
-            <textarea
-              class="form-control"
-              type="text"
-              rows="4"
-              id="request"
-              name="request"
-              maxlength="500"
-              placeholder="Enter any Requests..."
-            ></textarea>
+            <textarea class="form-control" type="text" rows="4" id="request" name="request" maxlength="500" placeholder="Enter any Requests..."></textarea>
             <br />
             <input value="Back" class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='home.html';" />
             <input class="btn btn-success" type="submit" id="btnSave" value="Save" />

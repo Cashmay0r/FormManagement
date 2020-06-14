@@ -56,4 +56,4 @@ Babel
 
 NAVBAR:
 -Implement faster navbar changes based on account, user can still see and click on old items before they switch to the neww ones
--
+-Cannot find a way to modify navbar elements seamlessly, think React, Angular or Vue can do this.
