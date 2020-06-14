@@ -24,7 +24,7 @@ function userLogin() {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then(function () {
-      window.location.href = "index.html";
+      window.location.href = "home.html";
     })
     .catch(function (error) {
       // Handle Errors here.
@@ -66,6 +66,7 @@ function userStatus() {
     } else {
       // User is signed out.
       result.innerHTML = "No user is logged in.";
+      
       // ...
     }
   });

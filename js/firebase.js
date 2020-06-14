@@ -90,7 +90,7 @@ function uploadData() {
     request: request,
     key: tKey,
   });
-  window.location.href = "index.html";
+  window.location.href = "home.html";
 }
 
 function updateFormPreload() {
@@ -153,7 +153,7 @@ function deleteData() {
     .remove()
     .then(function () {
       console.log("Remove Successful");
-      window.location.href = "index.html";
+      window.location.href = "home.html";
     })
     .catch(function (error) {
       console.log("Remove Failed");

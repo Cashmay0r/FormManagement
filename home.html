@@ -2,9 +2,9 @@
 <html>
 
 <head>
-  <title>Form List</title>
-  <meta charset="UTF-8"> 
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form List</title>
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
@@ -13,6 +13,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style/style.css">
+  
   <script>
     var firebaseConfig = {
       apiKey: "AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo",
@@ -29,10 +30,13 @@
     firebase.analytics();
     firebase.database();
   </script>
-  <script type="text/javascript" src="js/form.js"></script>
+  
   <script id="javascript" type="text/javascript" src="js/firebase.js"></script>
+  <script type="text/javascript" src="js/form.js"></script>
 
-<body>
+  
+<body onload="javascript:readData();">
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="home.html">Form Applications</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,34 +52,22 @@
       </div>
     </div>
   </nav>
-
+  
   <div class="container-fluid">
-    <div class="row align-contents-center text-center">
+    <div class="row align-content-center text-center">
       <div class="col-12">
-        <h2 id="listItemTitle">List Item Details</h2>
+        <h2>Basic List Group</h2>
       </div>
       <div class="col-12">
-        <ul id="myListItem" class="list-group">
-          <li id="gName" class="list-group-item formdetails"><b>Group Name:</b> </li>
-          <li id="gLocation" class="list-group-item formdetails"><b>Location:</b> </li>
-          <li id="arrival" class="list-group-item formdetails"><b>Arrival Date:</b> </li>
-          <li id="depDate" class="list-group-item formdetails"><b>Departure Date:</b> </li>
-          <li id="total" class="list-group-item formdetails"><b>Total Persons:</b> </li>
-          <li id="ageGroup" class="list-group-item formdetails"><b>Age Group:</b> </li>
-          <li id="activities" class="list-group-item formdetails"><b>Activities:</b> </li>
-          <li id="diet" class="list-group-item formdetails"><b>Dietary Requirements:</b> </li>
-          <li id="request" class="list-group-item formdetails"><b>Special Requests:</b> </li>
+        <ul id="myList" class="list-group overflow-auto font-weight-bold">
         </ul>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary" onclick="window.location.href='home.html';">Back</button>
-        <button class="btn btn-success" onclick="window.location.href='updateDetails.html';">Update</button>
-        <button class="btn btn-danger" id="btnDelete">Delete</button>
+        <button class="btn btn-primary" type="button" id="btnNew">New Form</button>
         <script>
-        openListItem();
-      </script>
-        <script>
-          document.getElementById("btnDelete").addEventListener("click", deleteData);
+          document.getElementById("btnNew").addEventListener("click", function(){
+            window.location.href="form.html"
+          });
         </script>
       </div>
     </div>
