@@ -64,10 +64,18 @@ function userStatus() {
   const navHome = document.getElementById("navHome");
   const navNewForm = document.getElementById("navNewForm");
   const navTitle = document.getElementById("navTitle");
+  const navLogin = document.getElementById("navLogin");
+  const navAccount = document.getElementById("navAccount");
+
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+      navLogin.innerHTML = "Account";
       navTitle.setAttribute("href", "home.html");
-      // User is signed in.
+      navLogin.setAttribute("href", "account.html");
+      navHome.removeAttribute("hidden");
+      navNewForm.removeAttribute("hidden");
+      navLogin.removeAttribute("hidden");
+
       var displayName = user.displayName;
       var email = user.email;
       var emailVerified = user.emailVerified;
@@ -75,14 +83,13 @@ function userStatus() {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-
-      // ...
     } else {
-      // User is signed out.
+      navLogin.innerHTML = "Login";
+      navLogin.removeAttribute("hidden");
       navHome.setAttribute("hidden", "");
       navNewForm.setAttribute("hidden", "");
       navTitle.removeAttribute("href");
-      // ...
+      navAccount.setAttribute("hidden", "");
     }
   });
 }

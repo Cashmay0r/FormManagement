@@ -53,3 +53,7 @@ Promises
 Typescript
 Webpack
 Babel
+
+NAVBAR:
+-Implement faster navbar changes based on account, user can still see and click on old items before they switch to the neww ones
+-

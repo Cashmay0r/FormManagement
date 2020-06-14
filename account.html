@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Update Details</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
@@ -25,6 +25,7 @@
     ></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="style/style.css" />
+
     <script>
       var firebaseConfig = {
         apiKey: "AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo",
@@ -42,12 +43,10 @@
       firebase.database();
       firebase.auth();
     </script>
+
+    <script id="javascript" type="text/javascript" src="js/firebase.js"></script>
     <script type="text/javascript" src="js/form.js"></script>
-    <script src="js/firebase.js"></script>
     <script type="text/javascript" src="js/auth.js"></script>
-    <script>
-      userCheck();
-    </script>
   </head>
 
   <body>
@@ -68,7 +67,6 @@
         <div id="navBar" class="navbar-nav ml-auto">
           <a id="navHome" class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
           <a id="navNewForm" class="nav-item nav-link" href="form.html">New Form</a>
-
           <a id="navLogin" class="nav-item nav-link active" href="index.html">Login</a>
           <a class="nav-item nav-link" href="#">Help</a>
         </div>
@@ -77,45 +75,5 @@
     <script>
       userStatus();
     </script>
-    <div class="container-fluid">
-      <div class="row align-contents-center text-center">
-        <div class="col-12">
-          <form>
-            <label for="gName">Group Name:</label><br />
-            <input class="form-control" type="text" id="gNameUpdate" name="gName" value="" /><br />
-            <label for="gLocation">Group Location</label><br />
-            <input class="form-control" type="text" id="gLocationUpdate" name="gLocation" value="" /><br />
-            <label for="arrival">Arrival Date:</label><br />
-            <input class="form-control" type="text" id="arrivalUpdate" name="arrival" value="" /><br />
-            <label for="depDate">Departure Date:</label><br />
-            <input class="form-control" type="text" id="depDateUpdate" name="depDate" value="" /><br />
-            <label for="total">Total Persons:</label><br />
-            <input class="form-control" type="text" id="totalUpdate" name="total" value="" /><br />
-            <label for="ageGroup">Age Group</label><br />
-            <input class="form-control" type="text" id="ageGroupUpdate" name="ageGroup" value="" /><br />
-            <label for="activities">Activities:</label><br />
-            <input class="form-control" type="text" id="activitiesUpdate" name="activities" value="" /><br />
-            <label for="diet">Dietaries</label><br />
-            <input class="form-control" type="text" id="dietUpdate" name="diet" value="" /><br />
-            <label for="request">Requests</label><br />
-            <input class="form-control" type="text" id="requestUpdate" name="request" value="" /><br />
-          </form>
-          <div>
-            <button class="btn btn-primary" type="button" id="btnBack" onclick="window.location.href='home.html';">
-              Back
-            </button>
-            <button class="btn btn-success" type="button" id="btnUpdate" onclick="window.location.href='home.html';">
-              Update
-            </button>
-          </div>
-          <script>
-            updateFormPreload();
-          </script>
-          <script>
-            document.getElementById("btnUpdate").addEventListener("click", updateData);
-          </script>
-        </div>
-      </div>
-    </div>
   </body>
 </html>

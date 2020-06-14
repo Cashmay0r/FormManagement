@@ -65,14 +65,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div id="navBar" class="navbar-nav ml-auto">
-          <a id="navHome" class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-          <a id="navNewForm" class="nav-item nav-link" href="form.html">New Form</a>
-          <a class="nav-item nav-link active" href="index.html">Login</a>
+          <a id="navHome" hidden class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          <a id="navNewForm" hidden class="nav-item nav-link" href="form.html">New Form</a>
+          <a id="navLogin" hidden class="nav-item nav-link active" href="index.html">Login</a>
           <a class="nav-item nav-link" href="#">Help</a>
         </div>
       </div>
     </nav>
-<script>userStatus();</script>
+    <script>
+      userStatus();
+    </script>
     <div class="container-fluid">
       <div class="row align-content-center text-center">
         <div class="col-12">
@@ -94,7 +96,6 @@
       </div>
     </div>
     <script>
-      
       document.getElementById("btnLogin").addEventListener("click", function () {
         userLogin();
       });
