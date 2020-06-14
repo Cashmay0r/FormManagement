@@ -5,7 +5,7 @@ function createNewUser() {
 
   firebase
     .auth()
-    .currentUser.createUserWithEmailAndPassword(email, password)
+    .createUserWithEmailAndPassword(email, password)
     .then(function () {
       const user = firebase.auth().currentUser;
 
@@ -32,7 +32,12 @@ function userLogin() {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then(function () {
-      window.location.href = "home.html";
+      const user = firebase.auth().currentUser;
+      if (user.emailVerified) {
+        window.location.href = "home.html";
+      } else {
+        result.innerHTML = "Please Verify Account.";
+      }
     })
     .catch(function (error) {
       // Handle Errors here.
