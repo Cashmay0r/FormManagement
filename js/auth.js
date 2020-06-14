@@ -5,16 +5,24 @@ function createNewUser() {
 
   firebase
     .auth()
-    .createUserWithEmailAndPassword(email, password)
+    .currentUser.createUserWithEmailAndPassword(email, password)
+    .then(function () {
+      const user = firebase.auth().currentUser;
+
+      user.sendEmailVerification().then(function () {
+        result.innerHTML = "Verification Email Sent";
+      });
+    })
     .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode, errorMessage);
-      result.innerHTML = "Password Must Contain a symbol, number and Uppercase Character";
+      result.innerHTML = errorMessage;
       // ...
     });
 }
+
 function userLogin() {
   const email = document.getElementById("emailSubmit").value;
   const password = document.getElementById("passwordSubmit").value;
@@ -31,7 +39,7 @@ function userLogin() {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorCode, errorMessage);
-      result.innerHTML = "Incorrect Password";
+      result.innerHTML = errorMessage;
     });
 }
 function userLogout() {
@@ -48,10 +56,12 @@ function userLogout() {
 }
 
 function userStatus() {
-  const result = document.getElementById("loginResult");
-
+  const navHome = document.getElementById("navHome");
+  const navNewForm = document.getElementById("navNewForm");
+  const navTitle = document.getElementById("navTitle");
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+      navTitle.setAttribute("href", "home.html");
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
@@ -61,13 +71,21 @@ function userStatus() {
       var uid = user.uid;
       var providerData = user.providerData;
 
-      result.innerHTML = email + " is already logged in.";
       // ...
     } else {
       // User is signed out.
-      result.innerHTML = "No user is logged in.";
-      
+      navHome.setAttribute("hidden", "");
+      navNewForm.setAttribute("hidden", "");
+      navTitle.removeAttribute("href");
       // ...
+    }
+  });
+}
+function userCheck() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+    } else {
+      window.location.replace("index.html");
     }
   });
 }

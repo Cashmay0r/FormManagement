@@ -47,3 +47,9 @@ Login/Account Process for New Users:
 2. Registers New Account, verifies email, then logged in.
 3. User can now see Home page, Login button is replaced with Account Button, can create new form, can update existing forms.
 4. User can hover over Account button and click logout, user is logged out and only able to see the Login page until they log back in.
+
+Node.js
+Promises
+Typescript
+Webpack
+Babel

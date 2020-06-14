@@ -7,6 +7,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
     <script
       type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxYDRy4OfKhuQ_v6MCjoho-DUnj9a6QEo&libraries=places"
@@ -43,14 +44,19 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
       firebase.database();
+      firebase.auth();
     </script>
     <script id="formJs" type="text/javascript" src="js/form.js"></script>
     <script id="javascript" type="text/javascript" src="js/firebase.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+    <script>
+      userCheck();
+    </script>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="home.html">Form Applications</a>
+      <a id="navTitle" class="navbar-brand">Booking Manager</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -63,15 +69,17 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link active" href="form.html">New Form</a>
+        <div id="navBar" class="navbar-nav ml-auto">
+          <a id="navHome" class="nav-item nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          <a id="navNewForm" class="nav-item nav-link active" href="form.html">New Form</a>
           <a class="nav-item nav-link" href="index.html">Login</a>
           <a class="nav-item nav-link" href="#">Help</a>
         </div>
       </div>
     </nav>
-
+    <script>
+      userStatus();
+    </script>
     <div class="container-fluid">
       <div class="row justify-content-center text-center">
         <div class="col">
